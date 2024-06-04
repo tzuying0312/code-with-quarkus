@@ -11,3 +11,14 @@ RUN yum install -y sudo && yum install -y podman
 #     source /etc/profile.d/gradle.sh
 
 # quarkus build --native -Dquarkus.native.container-build=true -Dquarkus.native.container-runtime=podman -Dquarkus.native.builder-image=quay.io/quarkus/ubi-quarkus-mandrel-builder-image:jdk-17
+# ./gradlew build -Dquarkus.package.type=native -Dquarkus.native.container-build=true -Dquarkus.native.container-runtime=podman -Dquarkus.native.builder-image.pull=missing -Dquarkus.native.builder-image=quay.io/quarkus/ubi-quarkus-mandrel-builder-image:jdk-17
+
+# https://www.graalvm.org/downloads/#
+# https://quarkus.io/guides/building-native-image
+# https://github.com/graalvm/mandrel/releases
+# dnf install glibc-devel zlib-devel gcc freetype-devel libstdc++-static
+# tar -xf graalvm-jdk-17_linux-x64_bin.tar.gz
+# export GRAALVM_HOME=/home/graalvm-jdk-17.0.11+7.1/
+# export JAVA_HOME=${GRAALVM_HOME}
+# export PATH=${GRAALVM_HOME}/bin:$PATH
+# ./gradlew build -Dquarkus.package.type=native
